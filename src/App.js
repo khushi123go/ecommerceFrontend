@@ -2,7 +2,7 @@
 import logo from './logo.svg';
 import  Counter  from './features/counter/Counter';
 import './App.css';
-import ProductList from './features/product-list/ProductList';
+import ProductList from './features/product/components/ProductList';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import Home from './pages/Home';
@@ -16,6 +16,9 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import CartPage from './pages/CartPage';
+import CheckOutPage from './pages/CheckOutPage';
+
+import ProductDetailPage from './pages/ProductDetailPage';
 
 
 const router = createBrowserRouter([
@@ -34,6 +37,14 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: (<CartPage></CartPage>),
+  },
+  {
+    path: "/checkout",
+    element: (<CheckOutPage></CheckOutPage>),
+  },
+  {
+    path: "/product-detail",
+    element: (<ProductDetailPage></ProductDetailPage>),
   },
 ]);
 
