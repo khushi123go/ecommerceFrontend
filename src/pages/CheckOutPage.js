@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   increment,
   incrementAsync,
-  selectCount,
+  
 } from '../features/cart/cartSlice.js';
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
@@ -55,8 +55,7 @@ const addresses = [
 
 
 function CheckOutPage() {
-  
-  const count = useSelector(selectCount);
+
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true)
     return (
