@@ -23,6 +23,16 @@ import Protected from './features/auth/components/Protected';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 import { selectLoggedInUser } from './features/auth/authSlice';
+import PageNotFound from './pages/404';
+import OrderSuccess from './pages/OrderSuccess';
+import UserOrders from './features/user/components/UserOrders';
+import UserOrdersPage from './pages/UserOrdersPage';
+import UserProfile from './features/user/components/UserProfile';
+import UserProfilePage from './pages/UserProfilePage';
+import { fetchLoggedInUser } from './features/user/userApi';
+import { fetchLoggedInUserAsync } from './features/user/userSlice';
+import Logout from './features/auth/components/Logout';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
 
 
 const router = createBrowserRouter([
@@ -54,6 +64,30 @@ const router = createBrowserRouter([
     path: "/product-detail/:id",
     element: (<Protected><ProductDetailPage></ProductDetailPage></Protected>),
   },
+  {
+    path: "/order-success/:id",
+    element: (<OrderSuccess></OrderSuccess>),
+  },
+  {
+    path: "/orders",
+    element: (<UserOrdersPage></UserOrdersPage>),
+  },
+  {
+    path: "/profile",
+    element: (<UserProfilePage></UserProfilePage>),
+  },
+  {
+    path: "/logout",
+    element: (<Logout></Logout>),
+  },
+  {
+    path: "/forgotpassword",
+    element: (<ForgotPasswordPage></ForgotPasswordPage>),
+  },
+  {
+    path: "*",
+    element: (<PageNotFound></PageNotFound>),
+  }
 ]);
 
 
@@ -72,6 +106,7 @@ function App() {
   useEffect(()=>{
     if(user){
       dispatch(fetchItemsByUserIdAsync(user.id))
+      dispatch(fetchLoggedInUserAsync(user.id))
     }  
   },[dispatch,user])
   return (

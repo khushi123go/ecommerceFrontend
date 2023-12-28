@@ -2106,156 +2106,33 @@
       "id": 1
     }
   ],
-  "cart": [
-    {
-      "id": 3,
-      "title": "Samsung Universe 9",
-      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-      "price": 1249,
-      "discountPercentage": 15.46,
-      "rating": 4.09,
-      "stock": 36,
-      "brand": "Samsung",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/3/1.jpg"
-      ],
-      "quantity": 5,
-      "user": 1
-    },
-    {
-      "id": 78,
-      "title": "Rhinestone Korean Style Open Rings",
-      "description": "Fashion Jewellery 3Pcs Adjustable Pearl Rhinestone Korean Style Open Rings For Women",
-      "price": 30,
-      "discountPercentage": 8.02,
-      "rating": 4.69,
-      "stock": 9,
-      "brand": "Fashion Jewellery",
-      "category": "womens-jewellery",
-      "thumbnail": "https://i.dummyjson.com/data/products/78/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/78/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": 1
-    },
-    {
-      "title": "Samsung Universe 9",
-      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-      "price": 1249,
-      "discountPercentage": 15.46,
-      "rating": 4.09,
-      "stock": 36,
-      "brand": "Samsung",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/3/1.jpg"
-      ],
-      "quantity": 4,
-      "user": 1,
-      "id": 79
-    },
-    {
-      "title": "HP Pavilion 15-DK1056WM",
-      "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
-      "price": 1099,
-      "discountPercentage": 6.18,
-      "rating": 4.43,
-      "stock": 89,
-      "brand": "HP Pavilion",
-      "category": "laptops",
-      "thumbnail": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
-      "images": [
-        "https://i.dummyjson.com/data/products/10/1.jpg",
-        "https://i.dummyjson.com/data/products/10/2.jpg",
-        "https://i.dummyjson.com/data/products/10/3.jpg",
-        "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
-      ],
-      "quantity": 1,
-      "user": 1,
-      "id": 80
-    }
-  ],
+  "cart": [],
   "orders": [
     {
       "items": [
         {
-          "id": 3,
-          "title": "Samsung Universe 9",
-          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-          "price": 1249,
-          "discountPercentage": 15.46,
-          "rating": 4.09,
-          "stock": 36,
-          "brand": "Samsung",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+          "title": "Chappals & Shoe Ladies Metallic",
+          "description": "Womens Chappals & Shoe Ladies Metallic Tong Thong Sandal Flat Summer 2020 Maasai Sandals",
+          "price": 23,
+          "discountPercentage": 2.62,
+          "rating": 4.72,
+          "stock": 107,
+          "brand": "Maasai Sandals",
+          "category": "womens-shoes",
+          "thumbnail": "https://i.dummyjson.com/data/products/49/thumbnail.jpg",
           "images": [
-            "https://i.dummyjson.com/data/products/3/1.jpg"
-          ],
-          "quantity": 5,
-          "user": 1
-        },
-        {
-          "id": 78,
-          "title": "Rhinestone Korean Style Open Rings",
-          "description": "Fashion Jewellery 3Pcs Adjustable Pearl Rhinestone Korean Style Open Rings For Women",
-          "price": 30,
-          "discountPercentage": 8.02,
-          "rating": 4.69,
-          "stock": 9,
-          "brand": "Fashion Jewellery",
-          "category": "womens-jewellery",
-          "thumbnail": "https://i.dummyjson.com/data/products/78/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/78/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 1
-        },
-        {
-          "title": "Samsung Universe 9",
-          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-          "price": 1249,
-          "discountPercentage": 15.46,
-          "rating": 4.09,
-          "stock": 36,
-          "brand": "Samsung",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/3/1.jpg"
-          ],
-          "quantity": 4,
-          "user": 1,
-          "id": 79
-        },
-        {
-          "title": "HP Pavilion 15-DK1056WM",
-          "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
-          "price": 1099,
-          "discountPercentage": 6.18,
-          "rating": 4.43,
-          "stock": 89,
-          "brand": "HP Pavilion",
-          "category": "laptops",
-          "thumbnail": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
-          "images": [
-            "https://i.dummyjson.com/data/products/10/1.jpg",
-            "https://i.dummyjson.com/data/products/10/2.jpg",
-            "https://i.dummyjson.com/data/products/10/3.jpg",
-            "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
+            "https://i.dummyjson.com/data/products/49/1.jpg",
+            "https://i.dummyjson.com/data/products/49/2.jpg",
+            "https://i.dummyjson.com/data/products/49/3.webp",
+            "https://i.dummyjson.com/data/products/49/thumbnail.jpg"
           ],
           "quantity": 1,
           "user": 1,
-          "id": 80
+          "id": 1
         }
       ],
-      "totalAmount": 12370,
-      "totalItems": 11,
+      "totalAmount": 23,
+      "totalItems": 1,
       "user": {
         "email": "tiwarikhushi907@gmail.com",
         "password": "Khushi@2004",
@@ -2281,17 +2158,18 @@
         ],
         "id": 1
       },
-      "paymentMethod": "cash",
+      "paymentMethod": "card",
       "selectedAddress": {
-        "name": "Khushi Tiwari",
-        "email": "tiwarikhushi907@gmail.com",
-        "phone": "8976079031",
+        "name": "Natasha Tiwari",
+        "email": "tiwarih761@gmail.com",
+        "phone": "9819985919",
         "street": "C-6/85, Bhagyoday CHS, MHADA, Malvani, Malad West",
         "city": "Mumbai",
         "state": "Maharashtra",
         "pinCode": "400095"
       },
-      "id": 1
+      "status": "pending",
+      "id": 4
     }
   ]
 }

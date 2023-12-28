@@ -10,10 +10,11 @@ import {
 } from '../features/cart/cartSlice.js';
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { selectLoggedInUser, updateUserAsync } from '../features/auth/authSlice.js';
-import { createOrderAsync } from '../features/order/orderSlice.js';
+import {  updateUserAsync } from '../features/auth/authSlice.js';
+import { createOrderAsync, selectCurrentOrder } from '../features/order/orderSlice.js';
+import { selectUserInfo } from '../features/user/userSlice.js';
 
 
 
@@ -27,11 +28,12 @@ function CheckOutPage() {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true)
   const items = useSelector(selectItems)
+  const currentOrder = useSelector(selectCurrentOrder)
   const totalAmount = items.reduce((amount,item)=>item.price*item.quantity + amount,0);
   const totalItems = items.reduce((total,item)=>item.quantity+total,0)
   const [selectedAddress,setSelectedAddress]=useState(null)
   const [paymentMethod,setPaymentMethod]=useState('cash')
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const { register,handleSubmit,reset,formState: { errors }} = useForm()
   const handleQuantity = (e,item)=>{
      dispatch(updateCartAsync({...item, quantity:+e.target.value}))
@@ -49,7 +51,7 @@ function CheckOutPage() {
     setPaymentMethod(e.target.value)
   }
   const handleOrder=(e)=>{
-    const order = {items,totalAmount,totalItems,user,paymentMethod,selectedAddress}
+    const order = {items,totalAmount,totalItems,user,paymentMethod,selectedAddress,status:'pending'} //order status can be delivered, received
     dispatch(createOrderAsync(order))
     //todo : redirect to order-success page
     //todo : clear cart after order
@@ -58,6 +60,9 @@ function CheckOutPage() {
 
 
     return (
+      <>
+      {!items.length && <Navigate to="/" replace={true}></Navigate>}
+      {currentOrder && <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
         <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
             <div className="lg:col-span-3">
@@ -368,7 +373,7 @@ function CheckOutPage() {
         </div>
         </div>
         
-       
+        </>
     )
 }
 
