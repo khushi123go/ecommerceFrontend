@@ -9,7 +9,7 @@ import {
   selectBrands,
   selectCategories,
   selectTotalItems,
-} from '../ProductSlice';
+} from '../../product/ProductSlice';
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { StarIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
@@ -28,7 +28,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ProductList() {
+export default function AdminProductList() {
   const [mobileFiltersOpen,setMobileFiltersOpen] = useState(false)
   const dispatch = useDispatch();
   const products = useSelector(selectAllProducts);
@@ -176,8 +176,18 @@ export default function ProductList() {
               {/* Filters */}
               <DesktopFilter filters={filters} handleFilter={handleFilter}></DesktopFilter>
 
+            
+
               {/* Product grid */}
               <div className="lg:col-span-3">
+            <div>
+            <Link 
+            to='/admin/product-form'
+            className='rounded-md mx-10 my-5 bg-green-600 px-3 py-2 text-sm font-semibold text-white hover:bg-green-500 '
+            >
+              Add New Product
+              </Link>
+            </div>
                  {/* ths is our product page */}
                   <ProductGrid filters={filters} products={products}></ProductGrid>
                 </div>
@@ -415,12 +425,13 @@ function ProductGrid({products,filters}){
                               
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
         {products.map((product) => (
+          <div>
             <Link to={`/product-detail/${product.id}`} key={product.id}>
             <div key={product.id} className="group relative border-solid border-2 border-gray-200 p-2">
               <div className="min-h-6 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
                 <img
                   src={product.thumbnail}
-                  alt={product.imageAlt}
+                  alt={product.title}
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
               </div>
@@ -448,12 +459,22 @@ function ProductGrid({products,filters}){
                 </div>
                
               </div>
-              {product.deleted && <div>
+             {product.deleted && <div>
                 <p className='text-sm text-red-400'>Product Deleted</p>
               </div>}
             </div>
             </Link>
-            
+            <div>
+              <div className='my-4'>
+            <Link 
+            to={`/admin/product-form/edit/${product.id}`}
+            className='rounded-md my-2 bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 '
+            >
+              Edit Product
+            </Link>
+            </div>
+            </div>
+            </div>
           ))}
         </div>
       </div>

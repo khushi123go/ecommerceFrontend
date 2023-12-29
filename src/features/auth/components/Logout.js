@@ -7,7 +7,7 @@ function Logout() {
     const dispatch = useDispatch();
     const user = useSelector(selectLoggedInUser)
     useEffect(()=>{
-        dispatch(signOutAsync)
+        dispatch(signOutAsync())
     })
     //but useeffect runs after render so we have to delay navigate part
     return (

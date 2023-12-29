@@ -56,7 +56,7 @@ export default function UserProfile() {
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                      <h2 className='text-4xl my-5 font-bold tracking-tight text-gray-900'>Name : {user.name ? user.name: 'New User'}</h2>
                      <h4 className='text-xl my-5 font-bold tracking-tight text-red-900'>email address : {user.email}</h4>
-                         
+                    {user.role==='admin' && <h4 className='text-xl my-5 font-bold tracking-tight text-red-900'> role : {user.role}</h4>}                         
                        </div>
                     
  
