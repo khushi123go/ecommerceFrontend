@@ -35,8 +35,7 @@
         "https://i.dummyjson.com/data/products/2/2.jpg",
         "https://i.dummyjson.com/data/products/2/3.jpg",
         "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-      ],
-      "deleted": true
+      ]
     },
     {
       "id": 3,
@@ -54,8 +53,7 @@
         "ss",
         "ef",
         "https://i.dummyjson.com/data/products/3/thumbnail.jpg"
-      ],
-      "deleted": true
+      ]
     },
     {
       "id": 4,
@@ -73,8 +71,7 @@
         "https://i.dummyjson.com/data/products/4/2.jpg",
         "https://i.dummyjson.com/data/products/4/3.jpg",
         "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
-      ],
-      "deleted": true
+      ]
     },
     {
       "id": 5,
@@ -2149,47 +2146,6 @@
   ],
   "cart": [
     {
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 4.44,
-      "stock": 34,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/2/1.jpg",
-        "https://i.dummyjson.com/data/products/2/2.jpg",
-        "https://i.dummyjson.com/data/products/2/3.jpg",
-        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": 2,
-      "id": 2
-    },
-    {
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 4.44,
-      "stock": 34,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/2/1.jpg",
-        "https://i.dummyjson.com/data/products/2/2.jpg",
-        "https://i.dummyjson.com/data/products/2/3.jpg",
-        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-      ],
-      "productId": 2,
-      "quantity": 1,
-      "user": 2,
-      "id": 3
-    },
-    {
       "title": "MacBook Pro",
       "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
       "price": 1749,
@@ -2227,6 +2183,48 @@
       "quantity": 1,
       "user": 1,
       "id": 7
+    },
+    {
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "rating": 0,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "productId": 2,
+      "quantity": 1,
+      "user": 1,
+      "id": 13
+    },
+    {
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "rating": 0,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "productId": 2,
+      "quantity": 1,
+      "user": 2,
+      "id": 14
     }
   ],
   "orders": [

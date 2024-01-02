@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchAllProductByIdAsync, selectProductById } from '../../product/ProductSlice'
+import { fetchAllProductByIdAsync, selectProductById, selectProductStatus } from '../../product/ProductSlice'
 import { useParams } from 'react-router-dom'
-import { addToCartAsync } from '../../cart/cartSlice'
+import { addToCartAsync, selectItems } from '../../cart/cartSlice'
 import { selectLoggedInUser } from '../../auth/authSlice'
 import { discountedPrice } from '../../../app/constants'
+import { Grid } from 'react-loader-spinner'
+import { useAlert } from 'react-alert'
 
 
  
@@ -45,20 +47,40 @@ export default function AdminProductDetail() {
   const product = useSelector(selectProductById)
   const dispatch = useDispatch();
   const params = useParams();
+  const status = useSelector(selectProductStatus)
+  const items = useSelector(selectItems)
   
+  const alert = useAlert()
   const handleCart = (e)=>{
     e.preventDefault()
-    const newItem = {...product,quantity:1,user:user.id }
+   if (items.findIndex(item=>item.productId===product.id) <0){
+    const newItem = {...product,productId:product.id,quantity:1,user:user.id }
     delete newItem['id']
-    dispatch(addToCartAsync(newItem)) 
+    dispatch(addToCartAsync(newItem))
+    alert.success('Item added to cart')
+   }else{
+    alert.error("Item already added");
+   }
+     
   }
   useEffect(()=>{
     dispatch(fetchAllProductByIdAsync(params.id))
   },[dispatch,params.id])
 
+
 //todo: in server data we will add colors,sizes,highlights etc.
   return (
     <div className="bg-white">
+       {status==='loading' ? <Grid
+                             visible={true}
+                             height="80"
+                             width="80"
+                             color="rgb(79,70,229)"
+                             ariaLabel="grid-loading"
+                             radius="12.5"
+                             wrapperStyle={{}}
+                             wrapperClass="grid-wrapper"
+                             /> : null}
       {product &&(<div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
