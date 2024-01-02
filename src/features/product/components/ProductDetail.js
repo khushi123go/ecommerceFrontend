@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchAllProductByIdAsync, selectProductById } from '../ProductSlice'
+import { fetchAllProductByIdAsync, selectProductById, selectProductListStatus, selectProductStatus } from '../ProductSlice'
 import { useParams } from 'react-router-dom'
 import { addToCartAsync, selectItems } from '../../cart/cartSlice'
 import { selectLoggedInUser } from '../../auth/authSlice'
 import { discountedPrice } from '../../../app/constants'
-
+import { useAlert } from "react-alert";
+import { Grid } from 'react-loader-spinner'
 
  
  const colors=[
@@ -46,15 +47,19 @@ export default function ProductDetail() {
   const dispatch = useDispatch();
   const params = useParams();
   const items = useSelector(selectItems)
-  
+  const status = useSelector(selectProductStatus)
+
+
+  const alert = useAlert()
   const handleCart = (e)=>{
     e.preventDefault()
    if (items.findIndex(item=>item.productId===product.id) <0){
     const newItem = {...product,productId:product.id,quantity:1,user:user.id }
     delete newItem['id']
     dispatch(addToCartAsync(newItem))
+    alert.success('Item added to cart')
    }else{
-    console.log("already added");
+    alert.error("Item already added");
    }
      
   }
@@ -65,6 +70,16 @@ export default function ProductDetail() {
 //todo: in server data we will add colors,sizes,highlights etc.
   return (
     <div className="bg-white">
+       {status==='loading' ? <Grid
+                             visible={true}
+                             height="80"
+                             width="80"
+                             color="rgb(79,70,229)"
+                             ariaLabel="grid-loading"
+                             radius="12.5"
+                             wrapperStyle={{}}
+                             wrapperClass="grid-wrapper"
+                             /> : null}
       {product &&(<div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -268,7 +283,9 @@ export default function ProductDetail() {
               >
                 Add to Cart
               </button>
+             
             </form>
+             
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">

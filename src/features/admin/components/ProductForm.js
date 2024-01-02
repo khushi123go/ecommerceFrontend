@@ -1,11 +1,12 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearSelectedProduct, createProductAsync, fetchAllProductByIdAsync, selectBrands, selectCategories, selectProductById, updateProductAsync } from '../../product/ProductSlice'
 import { useForm } from 'react-hook-form'
 import { checkUserAsync } from '../../auth/authSlice'
 import { useParams } from 'react-router-dom'
+import Modal from '../../common/Modal'
 
 function ProductForm() {
 
@@ -15,6 +16,7 @@ function ProductForm() {
     const categories = useSelector(selectCategories)
     const params = useParams()
     const selectedProduct = useSelector(selectProductById)
+    const [openModal,setOpenModal] = useState(null)
 
     
 
@@ -49,7 +51,8 @@ function ProductForm() {
     }
 
     return (
-        <form
+      <>
+      <form
         noValidate
         onSubmit={handleSubmit((data)=>{
             console.log(data);
@@ -81,6 +84,7 @@ function ProductForm() {
           
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            {selectedProduct.deleted&&<h2 className='text-red-500 '>This product is deleted</h2>}
             <div className="sm:col-span-6">
               <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900">
                 Product Name
@@ -350,17 +354,18 @@ function ProductForm() {
           </div>
         </div>
       </div>
+      
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
         <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
           Cancel
         </button>
-        {selectedProduct && <button //selectedProduct matlab ki sirf edit ke case me dikhega add me nahi
-          onClick={handleDelete}
+        {selectedProduct && !selectedProduct.deleted && (<button //selectedProduct matlab ki sirf edit ke case me dikhega add me nahi
+          onClick={(e)=>{e.preventDefault();setOpenModal(true)}}
           className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           Delete
-        </button>}
+        </button>)}
         <button
           type="submit"
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -369,6 +374,17 @@ function ProductForm() {
         </button>
       </div>
     </form>
+    <Modal 
+      title={`Delete ${selectedProduct.title}`}
+      message="Are you sure you want to delete this Product ?"
+      dangerOption="Delete"
+      cancelOption="Cancel"
+      dangerAction={handleDelete}
+      cancelAction={()=>setOpenModal(null)}
+      showModal = {openModal}
+      ></Modal>
+      </>
+        
     )
 }
 
