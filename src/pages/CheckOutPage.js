@@ -12,9 +12,10 @@ import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import {  updateUserAsync } from '../features/auth/authSlice.js';
+import {  updateUserAsync } from '../features/user/userSlice.js';
 import { createOrderAsync, selectCurrentOrder } from '../features/order/orderSlice.js';
 import { selectUserInfo } from '../features/user/userSlice.js';
+import { discountedPrice } from '../app/constants.js';
 
 
 
@@ -29,14 +30,14 @@ function CheckOutPage() {
   const [open, setOpen] = useState(true)
   const items = useSelector(selectItems)
   const currentOrder = useSelector(selectCurrentOrder)
-  const totalAmount = items.reduce((amount,item)=>item.price*item.quantity + amount,0);
+  const totalAmount = items.reduce((amount,item)=>discountedPrice(item.product)*item.quantity + amount,0);
   const totalItems = items.reduce((total,item)=>item.quantity+total,0)
   const [selectedAddress,setSelectedAddress]=useState(null)
   const [paymentMethod,setPaymentMethod]=useState('cash')
   const user = useSelector(selectUserInfo);
   const { register,handleSubmit,reset,formState: { errors }} = useForm()
   const handleQuantity = (e,item)=>{
-     dispatch(updateCartAsync({...item, quantity:+e.target.value}))
+     dispatch(updateCartAsync({id:item.id, quantity:+e.target.value}))
 
   }
   const handleRemove=(e,id)=>{
@@ -51,7 +52,7 @@ function CheckOutPage() {
     setPaymentMethod(e.target.value)
   }
   const handleOrder=(e)=>{
-    const order = {items,totalAmount,totalItems,user,paymentMethod,selectedAddress,status:'pending'} //order status can be delivered, received
+    const order = {items,totalAmount,totalItems,user:user.id,paymentMethod,selectedAddress,status:'pending'} //order status can be delivered, received
     dispatch(createOrderAsync(order))
     //todo : redirect to order-success page
     //todo : clear cart after order
@@ -281,8 +282,8 @@ function CheckOutPage() {
                               <li key={item.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
-                                    src={item.thumbnail}
-                                    alt={item.title}
+                                    src={item.product.thumbnail}
+                                    alt={item.product.title}
                                     className="h-full w-full object-cover object-center"
                                   />
                                 </div>
@@ -291,11 +292,11 @@ function CheckOutPage() {
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3>
-                                        <a href={item.href}>{item.title}</a>
+                                        <a href={item.product.id}>{item.product.title}</a>
                                       </h3>
-                                      <p className="ml-4">₹{(item.price)*83}</p>
+                                      <p className="ml-4">₹{discountedPrice(item.product)*83}</p>
                                     </div>
-                                    <p className="mt-1 text-sm text-gray-500">{item.brand}</p>
+                                    <p className="mt-1 text-sm text-gray-500">{item.product.brand}</p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                     <div className="text-gray-500">

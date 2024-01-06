@@ -17,13 +17,13 @@
         "https://i.dummyjson.com/data/products/1/3.jpg",
         "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
       ],
-      "deleted": true
+      "deleted":true
     },
     {
       "id": 2,
       "title": "iPhone X",
       "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
+      "price": 890,
       "discountPercentage": 17.94,
       "rating": 0,
       "stock": 34,
@@ -613,7 +613,7 @@
     {
       "id": 34,
       "title": "Plastic Table",
-      "description": "V﻿ery good quality plastic table for multi purpose now in reasonable price",
+      "description": "Very good quality plastic table for multi purpose now in reasonable price",
       "price": 50,
       "discountPercentage": 4,
       "rating": 4.01,
@@ -2146,66 +2146,6 @@
   ],
   "cart": [
     {
-      "title": "MacBook Pro",
-      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-      "price": 1749,
-      "discountPercentage": 11.02,
-      "rating": 4.57,
-      "stock": 83,
-      "brand": "Apple",
-      "category": "laptops",
-      "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
-      "images": [
-        "https://i.dummyjson.com/data/products/6/1.png",
-        "https://i.dummyjson.com/data/products/6/2.jpg",
-        "https://i.dummyjson.com/data/products/6/3.png",
-        "https://i.dummyjson.com/data/products/6/4.jpg"
-      ],
-      "productId": 6,
-      "quantity": 1,
-      "user": 1,
-      "id": 6
-    },
-    {
-      "title": "Samsung Universe 9",
-      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-      "price": 1249,
-      "discountPercentage": 15.46,
-      "rating": 4.09,
-      "stock": 36,
-      "brand": "Samsung",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/3/1.jpg"
-      ],
-      "productId": 3,
-      "quantity": 1,
-      "user": 1,
-      "id": 7
-    },
-    {
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 0,
-      "stock": 34,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/2/1.jpg",
-        "https://i.dummyjson.com/data/products/2/2.jpg",
-        "https://i.dummyjson.com/data/products/2/3.jpg",
-        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-      ],
-      "productId": 2,
-      "quantity": 1,
-      "user": 1,
-      "id": 13
-    },
-    {
       "title": "iPhone X",
       "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
       "price": 899,
@@ -2879,6 +2819,71 @@
       },
       "status": "pending",
       "id": 12
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 0,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "productId": 2,
+          "quantity": 4,
+          "user": 1,
+          "id": 15
+        }
+      ],
+      "totalAmount": 3596,
+      "totalItems": 4,
+      "user": {
+        "email": "tiwarikhushi907@gmail.com",
+        "password": "Khushi@2004",
+        "addresses": [
+          {
+            "name": "Khushi Tiwari",
+            "email": "tiwarikhushi907@gmail.com",
+            "phone": "8976079031",
+            "street": "C-6/85, Bhagyoday CHS, MHADA, Malvani, Malad West",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pinCode": "400095"
+          },
+          {
+            "name": "Natasha Tiwari",
+            "email": "tiwarih761@gmail.com",
+            "phone": "9819985919",
+            "street": "C-6/85, Bhagyoday CHS, MHADA, Malvani, Malad West",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pinCode": "400095"
+          }
+        ],
+        "role": "user",
+        "id": 1
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Khushi Tiwari",
+        "email": "tiwarikhushi907@gmail.com",
+        "phone": "8976079031",
+        "street": "C-6/85, Bhagyoday CHS, MHADA, Malvani, Malad West",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400095"
+      },
+      "status": "delivered",
+      "id": 13
     }
   ]
 }
