@@ -8,7 +8,7 @@ export function fetchAllProducts() {
   }
   );
 }
-export function fetchProductsByFilters(filter,sort,pagination) {
+export function fetchProductsByFilters(filter,sort,pagination,admin) {
 
   //filter opject= {"category":"smartphone"}
   //TODO: on server we will support mulyivalues
@@ -27,6 +27,9 @@ export function fetchProductsByFilters(filter,sort,pagination) {
   }
   for(let key in pagination){
     queryString += `${key}=${+pagination[key]}&`
+  }
+  if(admin){
+    queryString+=`admin=true`;
   }
   return new Promise(async (resolve) =>{
     //TODO: we will not hard-code server URL here

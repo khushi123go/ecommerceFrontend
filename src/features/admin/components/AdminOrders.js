@@ -3,7 +3,6 @@ import { ITEMS_PER_PAGE, discountedPrice } from '../../../app/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllOrdersAsync ,selectOrders,selectTotalOrders, updateOrderAsync} from '../../order/orderSlice';
 import { ArrowDownIcon, ArrowUpIcon, EyeIcon, PencilIcon } from '@heroicons/react/24/outline';
-import { fetchProductsByFiltersAsync } from '../../product/ProductSlice';
 import Pagination from '../../common/Pagination';
 
 function AdminOrders() {
@@ -129,17 +128,15 @@ function AdminOrders() {
           <td className="p-4 border-b border-blue-gray-50">
             {order.items.map(item=><div className="flex items-center gap-3">
               <img
-                src={item.thumbnail}
-                alt="John Michael"
+                src={item.product.thumbnail}
+                alt={item.product.title}
                 className="inline-block relative object-cover object-center !rounded-full w-9 h-9 rounded-md"
               />
               <div className="flex flex-col">
                 <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
-                  {item.title} - #{item.quantity} - ₹{discountedPrice(item)*83}
+                  {item.product.title} - #{item.quantity} - ₹{discountedPrice(item)*83}
                 </p>
-                <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal opacity-70">
-                  john@creative-tim.com
-                </p>
+                
               </div>
             </div>)}
           </td>
