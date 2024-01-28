@@ -134,7 +134,7 @@ function AdminOrders() {
               />
               <div className="flex flex-col">
                 <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
-                  {item.product.title} - #{item.quantity} - ₹{discountedPrice(item)*83}
+                  {item.product.title} - #{item.quantity} - ₹{(item.product.discountPrice)*83}
                 </p>
                 
               </div>
