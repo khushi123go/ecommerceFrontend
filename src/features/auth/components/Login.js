@@ -7,7 +7,7 @@ import {
 } from '../authSlice.js';
 import { Link, Navigate } from 'react-router-dom';
 import {useForm} from "react-hook-form"
-import { checkUserAsync } from '../authSlice.js';
+import { loginUserAsync } from '../authSlice.js';
 export default function Login() {
    
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export default function Login() {
      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
        <form noValidate className="space-y-6" action='#' method='POST'
         onSubmit={handleSubmit((data)=>{
-          dispatch(checkUserAsync({email:data.email,password:data.password}));
+          dispatch(loginUserAsync({email:data.email,password:data.password}));
           console.log(data);
        })}
        >
